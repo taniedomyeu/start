@@ -49,8 +49,11 @@ footer {
 
 .close {
     color: rgb(0, 0, 0) !important;
-    text-color: rgb(0, 0, 0) !important;
     opacity:  1.0 !important;
+}
+
+.close:hover {
+    color: gray !important;
 }
 
 /*div {
