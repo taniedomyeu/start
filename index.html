@@ -21,8 +21,10 @@
     <div class="modal-dialog modal-dialog-centered modal-lg modal-fullscreen-sm-down">
         <div class="modal-content bg-transparent border-0 shadow-none">
             <div class="modal-body p-0 d-flex justify-content-center align-items-center">
-                <button type="button" class="btn-close position-absolute top-0 end-0 m-3" data-bs-dismiss="modal" aria-label="Close"></button>
-                <img class="img-fluid" style="max-width: 100%; max-height: 80vh; object-fit: contain;" src="/assets/facade/dl_2.jpg" alt="">
+                <button type="button" class="btn-close position-absolute top-0 end-0 m-3" data-bs-dismiss="modal"
+                        aria-label="Close"></button>
+                <img class="img-fluid" style="max-width: 100%; max-height: 80vh; object-fit: contain;"
+                     src="/assets/facade/dl_2.jpg" alt="">
             </div>
         </div>
     </div>
@@ -32,8 +34,10 @@
     <div class="modal-dialog modal-dialog-centered modal-lg modal-fullscreen-sm-down">
         <div class="modal-content bg-transparent border-0 shadow-none">
             <div class="modal-body p-0 d-flex justify-content-center align-items-center">
-                <button type="button" class="btn-close position-absolute top-0 end-0 m-3" data-bs-dismiss="modal" aria-label="Close"></button>
-                <img class="img-fluid" style="max-width: 100%; max-height: 80vh; object-fit: contain;" src="/assets/facade/dl_6.jpg" alt="">
+                <button type="button" class="btn-close position-absolute top-0 end-0 m-3" data-bs-dismiss="modal"
+                        aria-label="Close"></button>
+                <img class="img-fluid" style="max-width: 100%; max-height: 80vh; object-fit: contain;"
+                     src="/assets/facade/dl_6.jpg" alt="">
             </div>
         </div>
     </div>
@@ -43,8 +47,10 @@
     <div class="modal-dialog modal-dialog-centered modal-lg modal-fullscreen-sm-down">
         <div class="modal-content bg-transparent border-0 shadow-none">
             <div class="modal-body p-0 d-flex justify-content-center align-items-center">
-                <button type="button" class="btn-close position-absolute top-0 end-0 m-3" data-bs-dismiss="modal" aria-label="Close"></button>
-                <img class="img-fluid" style="max-width: 100%; max-height: 80vh; object-fit: contain;" src="/assets/facade/dl_8.jpg" alt="">
+                <button type="button" class="btn-close position-absolute top-0 end-0 m-3" data-bs-dismiss="modal"
+                        aria-label="Close"></button>
+                <img class="img-fluid" style="max-width: 100%; max-height: 80vh; object-fit: contain;"
+                     src="/assets/facade/dl_8.jpg" alt="">
             </div>
         </div>
     </div>
@@ -146,15 +152,38 @@
         <h3 class="text-center"><b>Mieszkanie dolne 565,000 zł</b></h3>
     </div>
     <div class="row justify-content-around">
+
+        <script>
+            // Czekamy, aż cała struktura HTML zostanie wczytana
+            document.addEventListener('DOMContentLoaded', () => {
+                const videoPlayer = document.getElementById('video');
+
+                // [Inference] Używamy bezpośrednio videoPlayer.src zamiast videoSource.src
+                const playlist = ["assets/videos/video-1.mp4", "assets/videos/video-2.mp4"];
+                let currentVideoIndex = 0;
+
+                videoPlayer.onended = function () {
+                    currentVideoIndex = (currentVideoIndex + 1) % playlist.length;
+
+                    // Podmieniamy źródło bezpośrednio w odtwarzaczu
+                    videoPlayer.src = playlist[currentVideoIndex];
+
+                    // [Inference] Po zmianie .src, load() i play() są kluczowe
+                    videoPlayer.load();
+                    videoPlayer.play();
+                };
+            });
+        </script>
+
         <!--big picture-->
         <div class="col d-flex justify-content-center position-relative">
-            <video autoplay muted loop>
-                <source src="assets/video.mp4" type="video/mp4">
+            <video id="video" autoplay muted>
+                <source id="videoSource" src="assets/videos/video-1.mp4" type="video/mp4">
                 Twoja przeglądarka nie wspiera tagu wideo.
             </video>
         </div>
-        <!--side column-->
 
+        <!--side column-->
         <div class="col-lg-2 my-lg-0 m-2 row align-content-between justify-content-center">
             <div class="row justify-content-around">
                 <div class="col-lg-12 col-5 mx-1">
