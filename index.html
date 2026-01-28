@@ -154,21 +154,14 @@
     <div class="row justify-content-around">
 
         <script>
-            // Czekamy, aż cała struktura HTML zostanie wczytana
             document.addEventListener('DOMContentLoaded', () => {
                 const videoPlayer = document.getElementById('video');
-
-                // [Inference] Używamy bezpośrednio videoPlayer.src zamiast videoSource.src
                 const playlist = ["assets/videos/video-1.mp4", "assets/videos/video-2.mp4"];
                 let currentVideoIndex = 0;
 
                 videoPlayer.onended = function () {
                     currentVideoIndex = (currentVideoIndex + 1) % playlist.length;
-
-                    // Podmieniamy źródło bezpośrednio w odtwarzaczu
                     videoPlayer.src = playlist[currentVideoIndex];
-
-                    // [Inference] Po zmianie .src, load() i play() są kluczowe
                     videoPlayer.load();
                     videoPlayer.play();
                 };
